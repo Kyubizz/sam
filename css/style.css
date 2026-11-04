@@ -1,0 +1,1096 @@
+:root {
+  /* Neutral Color Palette */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #e2e8f0;
+
+  /* Primary Brand Color (Teal) */
+  --color-primary: #0d9488;
+  --color-primary-hover: #0f766e;
+  --color-primary-light: #ccfbf1;
+  --color-primary-contrast: #ffffff;
+
+  /* Medical Waste Standard Colors */
+  --color-accent-yellow: #ca8a04;
+  --color-accent-yellow-bg: #fef08a;
+  --color-accent-red: #dc2626;
+  --color-accent-red-bg: #fecaca;
+  --color-accent-brown: #9a3412;
+  --color-accent-brown-bg: #ffedd5;
+  --color-accent-black: #334155;
+  --color-accent-black-bg: #f1f5f9;
+
+  /* Aliases for Waste Guide */
+  --color-waste-yellow: var(--color-accent-yellow);
+  --color-waste-yellow-bg: var(--color-accent-yellow-bg);
+  --color-waste-red: var(--color-accent-red);
+  --color-waste-red-bg: var(--color-accent-red-bg);
+  --color-waste-brown: var(--color-accent-brown);
+  --color-waste-brown-bg: var(--color-accent-brown-bg);
+  --color-waste-black: var(--color-accent-black);
+  --color-waste-black-bg: var(--color-accent-black-bg);
+
+  --color-star: #eab308;
+
+  /* Typography Tokens */
+  --font-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: clamp(1.875rem, 4vw, 2.25rem);
+
+  /* Spacing Tokens */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+
+  /* Shape & Shadow Tokens */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Layout & Transitions */
+  --container-max: 960px;
+  --duration-base: 200ms;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   3. Site Header & Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.brand {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.brand:hover {
+  color: var(--color-primary-hover);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--duration-base);
+  font-size: var(--text-sm);
+  padding: var(--space-1) 0;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 680px) {
+  .nav-inner {
+    height: auto;
+    padding-block: var(--space-3);
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  .nav-links {
+    width: 100%;
+    gap: var(--space-4);
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  padding-block: var(--space-12) var(--space-8);
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-bg));
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.hero-text h1 {
+  font-size: var(--text-3xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-text p {
+  color: var(--color-text-muted);
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: var(--text-base);
+}
+
+/* --------------------------------------------------------------------------
+   5. Layout Containers
+   -------------------------------------------------------------------------- */
+.dashboard-layout,
+.page-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-block: var(--space-8) var(--space-12);
+}
+
+.section-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.section-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  max-width: 70ch;
+}
+
+/* --------------------------------------------------------------------------
+   6. Guide Cards & Badges
+   -------------------------------------------------------------------------- */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.card-guide {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: transform var(--duration-base), box-shadow var(--duration-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-guide:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+.badge.red {
+  background: var(--color-accent-red-bg);
+  color: var(--color-accent-red);
+}
+
+.badge.yellow {
+  background: var(--color-accent-yellow-bg);
+  color: var(--color-accent-yellow);
+}
+
+.badge.brown {
+  background: var(--color-accent-brown-bg);
+  color: var(--color-accent-brown);
+}
+
+.card-guide h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.card-guide p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   7. Identification Box (Bahaya & Ciri-Ciri)
+   -------------------------------------------------------------------------- */
+.identification-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .identification-box {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.ident-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.ident-header svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.ident-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ident-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.ident-list li::before {
+  content: "•";
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   8. Expandable Cards & Articles (Accordion)
+   -------------------------------------------------------------------------- */
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.expandable-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-base);
+  overflow: hidden;
+}
+
+.expandable-card:hover {
+  background: var(--color-bg);
+}
+
+.expandable-summary {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.expandable-summary::-webkit-details-marker {
+  display: none;
+}
+
+.expandable-summary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -2px;
+  border-radius: var(--radius-md);
+}
+
+.article-thumb {
+  width: 80px;
+  height: 64px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.article-content h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.article-content p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.article-meta {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 4px;
+  display: block;
+}
+
+.expand-icon {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  transition: transform var(--duration-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandable-card[open] .expand-icon {
+  transform: rotate(180deg);
+}
+
+.expandable-content {
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Step-by-Step List */
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.step-item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.step-content p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.step-timing {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-1);
+}
+
+.step-verification {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.step-verification strong {
+  color: var(--color-text);
+}
+
+/* Color Variants for Step Lists */
+.step-list-red .step-number,
+.step-list-red .step-timing {
+  background: var(--color-accent-red-bg);
+  color: var(--color-accent-red);
+}
+.step-list-red .step-verification {
+  border-left-color: var(--color-accent-red);
+}
+
+.step-list-yellow .step-number,
+.step-list-yellow .step-timing {
+  background: var(--color-accent-yellow-bg);
+  color: var(--color-accent-yellow);
+}
+.step-list-yellow .step-verification {
+  border-left-color: var(--color-accent-yellow);
+}
+
+.step-list-brown .step-number,
+.step-list-brown .step-timing {
+  background: var(--color-accent-brown-bg);
+  color: var(--color-accent-brown);
+}
+.step-list-brown .step-verification {
+  border-left-color: var(--color-accent-brown);
+}
+
+.section-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.section-header-row .tps-header {
+  margin-bottom: 0;
+}
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color var(--duration-base), transform var(--duration-base);
+}
+
+.link-more:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
+.link-more svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Color Code Cards (Panduan Pemilahan)
+   -------------------------------------------------------------------------- */
+.color-codes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.color-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.color-header {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.color-header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.header-yellow {
+  background: var(--color-waste-yellow-bg);
+  color: var(--color-waste-yellow);
+  border-bottom: 1px solid rgba(202, 138, 4, 0.2);
+}
+
+.header-red {
+  background: var(--color-waste-red-bg);
+  color: var(--color-waste-red);
+  border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.header-brown {
+  background: var(--color-waste-brown-bg);
+  color: var(--color-waste-brown);
+  border-bottom: 1px solid rgba(154, 52, 18, 0.2);
+}
+
+.header-black {
+  background: var(--color-waste-black-bg);
+  color: var(--color-waste-black);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.2);
+}
+
+.color-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.color-body h4 {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.waste-examples {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.waste-examples li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.waste-examples li::before {
+  content: "✓";
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   10. Reference Data Tables
+   -------------------------------------------------------------------------- */
+.table-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 600px;
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table th {
+  background: var(--color-bg);
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr {
+  transition: background-color var(--duration-base);
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--color-bg);
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+.tag-yellow {
+  background: var(--color-waste-yellow-bg);
+  color: var(--color-waste-yellow);
+}
+
+.tag-red {
+  background: var(--color-waste-red-bg);
+  color: var(--color-waste-red);
+}
+
+.tag-brown {
+  background: var(--color-waste-brown-bg);
+  color: var(--color-waste-brown);
+}
+
+.tag-black {
+  background: var(--color-waste-black-bg);
+  color: var(--color-waste-black);
+}
+
+/* Principles Banner */
+.principles-box {
+  background: var(--color-primary-light);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-6);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.principles-box h3 {
+  color: var(--color-primary-hover);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-lg);
+}
+
+.principles-box p {
+  color: var(--color-text);
+  margin-bottom: 0;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   11. TPS B3 & Facility Cards
+   -------------------------------------------------------------------------- */
+.tps-header {
+  margin-bottom: var(--space-6);
+}
+
+.tps-header p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  max-width: 75ch;
+}
+
+.facility-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .facility-card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.facility-info h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.facility-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.meta-dot {
+  color: var(--color-border);
+}
+
+.rating-score {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.star-icon {
+  color: var(--color-star);
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+.facility-address {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.status-open {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.facility-actions {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .facility-actions {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: all var(--duration-base);
+  flex: 1;
+  background-color: var(--color-surface);
+}
+
+.btn-action:hover {
+  background: var(--color-bg);
+}
+
+.btn-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-primary-outline {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary-outline:hover {
+  background: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------------
+   11b. Handover Flow Section (Alur Penyerahan Limbah)
+   -------------------------------------------------------------------------- */
+.section-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-2);
+}
+
+.flow-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .flow-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.flow-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-base), box-shadow var(--duration-base), border-color var(--duration-base);
+  position: relative;
+}
+
+.flow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Visual step coloring accents */
+.flow-card:nth-child(1) {
+  border-top-color: var(--color-accent-yellow);
+}
+.flow-card:nth-child(1) .flow-icon-wrapper {
+  background: var(--color-accent-yellow-bg);
+  color: var(--color-accent-yellow);
+}
+.flow-card:nth-child(1) .flow-step-badge {
+  background: var(--color-accent-yellow-bg);
+  color: var(--color-accent-yellow);
+}
+
+.flow-card:nth-child(2) {
+  border-top-color: var(--color-primary);
+}
+.flow-card:nth-child(2) .flow-icon-wrapper {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.flow-card:nth-child(2) .flow-step-badge {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.flow-card:nth-child(3) {
+  border-top-color: #2563eb;
+}
+.flow-card:nth-child(3) .flow-icon-wrapper {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.flow-card:nth-child(3) .flow-step-badge {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.flow-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.flow-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.flow-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.flow-step-badge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+}
+
+.flow-card-body h4 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  line-height: 1.35;
+}
+
+.flow-card-body p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.flow-card-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.flow-card-check svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.handover-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: linear-gradient(135deg, var(--color-primary-light), #f0fdfa);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+}
+
+.handover-note-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.handover-note-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.handover-note-text {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.handover-note-text strong {
+  color: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  text-align: center;
+  padding-block: var(--space-8);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  font-size: var(--text-sm);
+  background-color: var(--color-surface);
+}
+
