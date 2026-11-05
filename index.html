@@ -3,25 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EduLimbah - Platform Edukasi Limbah Medis</title>
-  
-  <!-- CSS External -->
+  <title>EduLimbah - Portal Edukasi Limbah Medis B3 Rumah Tangga</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/flipbook.css">
-
-  <!-- Script StPageFlip -->
-  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-  <!-- JS External -->
   <script src="js/main.js" defer></script>
   <script src="js/flipbook.js" defer></script>
 </head>
 <body>
+  <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
 
-  <!-- Header Navigasi -->
+  <!-- Header Navigasi Melayang (Floating Glass Dock) -->
   <header class="site-header">
     <div class="container nav-inner">
-      <a href="index.html" class="brand">EduLimbah</a>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EduLimbah</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
         <a href="index.html" class="active" aria-current="page">Beranda</a>
         <a href="panduan.html">Panduan Pemilahan</a>
         <a href="materi.html">Materi & Artikel</a>
@@ -30,108 +28,242 @@
     </div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero Editorial & Panel Scanner Interaktif -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-text">
-        <h1>Belajar Mengelola Limbah Medis</h1>
-        <p>Kenali jenis limbah medis B3, cara memilah, dan prosedur membuangnya dengan benar agar lingkungan dan masyarakat sekitar tetap aman dari bahaya infeksi maupun bahan kimia.</p>
+    <div class="container hero-split-grid">
+      <div class="hero-main-col">
+        <div>
+          <h1>Pisahkan Limbah Medis Rumah Tangga Sebelum Membahayakan Sekitar</h1>
+          <p>Jarum suntik insulin, perban luka infeksius, dan obat kedaluwarsa membutuhkan wadah dan perlakuan khusus. Gunakan panel pemindai di samping atau telusuri Bento Grid protokol di bawah ini.</p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#modul-praktik" class="btn-primary">
+            <span>Buka Modul Penanganan</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-editorial-meta">
+          <div class="editorial-stat">
+            <strong>4 Warna</strong>
+            <span>Standar Klasifikasi Wadah KLHK</span>
+          </div>
+          <div class="editorial-stat">
+            <strong>Maks. 3/4</strong>
+            <span>Batas Aman Pengisian Safety Box</span>
+          </div>
+          <div class="editorial-stat">
+            <strong>3 Faskes</strong>
+            <span>Rujukan TPS B3 Berizin Kota Kediri</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alat Interaktif Cek Cepat Wadah Limbah -->
+      <div class="quick-checker" role="region" aria-label="Pemindai Wadah Pembuangan Limbah">
+        <div class="quick-checker-header">
+          <div class="quick-checker-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Cek Cepat Wadah Pembuangan</span>
+          </div>
+          <p>Pilih jenis barang medis yang ingin Anda buang:</p>
+        </div>
+
+        <div class="quick-chips">
+          <button type="button" class="chip-btn active" data-waste="jarum">Jarum Suntik & Spuit</button>
+          <button type="button" class="chip-btn" data-waste="perban">Perban & Kapas Luka</button>
+          <button type="button" class="chip-btn" data-waste="obat">Obat Kedaluwarsa</button>
+          <button type="button" class="chip-btn" data-waste="masker">Masker & Sarung Tangan</button>
+          <button type="button" class="chip-btn" data-waste="ampul">Pecahan Ampul Kaca</button>
+          <button type="button" class="chip-btn" data-waste="kardus">Kardus Kemasan Obat</button>
+        </div>
+
+        <div class="quick-checker-result" id="quickCheckerResult" aria-live="polite">
+          <span class="tag tag-red">Safety Box (Anti-Tusuk)</span>
+          <strong>Jarum Suntik, Spuit, dan Lancet</strong>
+          <p>Masukkan langsung tanpa menutup ulang jarum ke dalam Safety Box atau botol plastik kaku bertutup ulir hingga batas maksimal 3/4 penuh.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Konten Utama -->
-  <main class="container dashboard-layout">
+  <main id="konten-utama" class="container dashboard-layout">
     
-    <!-- Section 1: Panduan Pemilahan Dasar -->
+    <!-- Section 1: Bento Grid Panduan Pemilahan Dasar -->
     <section>
       <div class="section-header-row">
         <div class="tps-header">
-          <span class="section-badge">Standar Pemilahan</span>
-          <h2 class="section-title">Panduan Pemilahan Dasar</h2>
-          <p>Pilah limbah medis di titik awal berdasarkan kategori wadah dan warna kantong standar KLHK:</p>
+          <h2>Bento Protokol Pemilahan Dasar</h2>
+          <p>Pilah limbah medis sejak dari titik awal berdasarkan tingkat bahaya dan kode warna standar Kementerian LHK:</p>
         </div>
         <a href="panduan.html" class="link-more">
-          Lihat Tabel Lengkap
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <span>Lihat Tabel Klasifikasi Lengkap</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
       </div>
       
-      <div class="guides-grid">
-        <article class="card-guide">
-          <span class="badge red">Wadah Tahan Tusuk</span>
-          <h3>Jarum & Spuit Bekas</h3>
-          <p>Masukkan langsung jarum suntik bekas ke dalam <em>safety box</em> atau botol plastik tebal bersutup ulir. Jangan mencoba menekuk atau mematahkan jarum.</p>
+      <div class="bento-grid">
+        <!-- Bento 1 (Lebar 8 Kolom): Jarum Suntik & Safety Box -->
+        <article class="bento-card bento-span-8">
+          <div class="bento-card-header">
+            <span class="badge red">Wadah Kaku Tahan Tusuk (Safety Box)</span>
+            <span class="article-meta">Prioritas Risiko Tertinggi</span>
+          </div>
+          <div>
+            <h3>Jarum Suntik, Spuit, Lancet & Ampul Kaca</h3>
+            <p>Masukkan langsung jarum suntik beserta spuitnya ke dalam <em>Safety Box</em> atau botol plastik tebal bertutup ulir segera setelah dipakai. Jangan pernah menutup ulang jarum (<em>no recapping</em>), menekuk, atau mematahkan jarum dengan tangan.</p>
+          </div>
+          <div class="capacity-meter">
+            <div class="capacity-label">
+              <span>Batas Pengisian Aman (Fill Line)</span>
+              <span>Maksimal 3/4 Penuh (75%)</span>
+            </div>
+            <div class="capacity-track" aria-hidden="true">
+              <div class="capacity-fill"></div>
+            </div>
+          </div>
         </article>
         
-        <article class="card-guide">
-          <span class="badge yellow">Kantong Kuning</span>
-          <h3>Limbah Infeksius</h3>
-          <p>Perban berdarah, kapas bekas luka, dan sarung tangan bekas harus masuk ke kantong plastik kuning, diikat rapat agar tidak tumpah.</p>
+        <!-- Bento 2 (4 Kolom): Kantong Kuning -->
+        <article class="bento-card bento-span-4">
+          <div class="bento-card-header">
+            <span class="badge yellow">Kantong Kuning</span>
+          </div>
+          <div>
+            <h3>Limbah Infeksius</h3>
+            <p>Perban berdarah, kapas bekas luka, masker, dan sarung tangan medis wajib masuk ke kantong kuning atau plastik dua lapis (<em>double bag</em>) yang diikat rapat dengan metode leher angsa.</p>
+          </div>
         </article>
 
-        <article class="card-guide">
-          <span class="badge brown">Kantong Cokelat</span>
-          <h3>Obat Kedaluwarsa</h3>
-          <p>Keluarkan pil dari kemasan, hancurkan, dan campur dengan tanah atau ampas kopi sebelum dibuang ke tempat sampah agar tidak disalahgunakan.</p>
+        <!-- Bento 3 (6 Kolom): Kantong Cokelat -->
+        <article class="bento-card bento-span-6">
+          <div class="bento-card-header">
+            <span class="badge brown">Kantong Cokelat</span>
+          </div>
+          <div>
+            <h3>Obat Kedaluwarsa & Farmasi</h3>
+            <p>Keluarkan tablet atau kapsul dari blister, gerus hingga hancur, dan campurkan dengan tanah atau ampas kopi di dalam wadah tertutup rapat agar tidak disalahgunakan atau mencemari air tanah.</p>
+          </div>
+        </article>
+
+        <!-- Bento 4 (6 Kolom): Kantong Hitam Domestik -->
+        <article class="bento-card bento-span-6">
+          <div class="bento-card-header">
+            <span class="tag tag-black">Kantong Hitam (Non-Medis)</span>
+          </div>
+          <div>
+            <h3>Kemasan Bersih & Sampah Domestik</h3>
+            <p>Kardus obat dan bungkus alat suntik yang tidak terkena cairan tubuh dikategorikan sebagai sampah domestik. Gunting kemasan dan coret nama pasien sebelum dibuang ke tempat sampah hitam.</p>
+          </div>
         </article>
       </div>
 
-         </section>
+      <div class="identification-box">
+        <div class="ident-panel">
+          <div class="ident-header ident-header-brown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>Ciri Fisik Obat Kedaluwarsa atau Rusak</span>
+          </div>
+          <ul class="ident-list">
+            <li>Telah melewati tanggal <em>Expired Date</em> (ED) pada kemasan.</li>
+            <li>Obat sirup: Mengendap, mengkristal, keruh, atau berbau asam menyengat.</li>
+            <li>Obat tablet/kapsul: Berubah warna, berjamur, lembek, atau hancur/retak di dalam strip.</li>
+            <li>Obat salep: Menjadi cair, berair terpisah dari krim, atau kemasan menggembung.</li>
+          </ul>
+        </div>
+        
+        <div class="ident-panel">
+          <div class="ident-header ident-header-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Ciri Jarum Suntik Terkontaminasi</span>
+          </div>
+          <ul class="ident-list">
+            <li>Terdapat noda cairan darah atau cairan biologis lainnya di ujung atau tabung jarum.</li>
+            <li>Telah digunakan untuk menusuk kulit pasien atau menembus vial obat.</li>
+            <li>Tutup pelindung jarum (<em>cap</em>) sudah terlepas, hilang, atau longgar.</li>
+            <li>Spuit yang ditemukan tergeletak sembarangan di luar fasilitas kesehatan, tanpa diketahui riwayat penggunaannya.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <!-- Section 2: Materi & Buku Digital -->
-    <section>
+    <!-- Section 2: Materi & Buku Digital dengan Filter Tab Dashboard -->
+    <section id="modul-praktik">
       <div class="section-header-row">
         <div class="tps-header">
-          <span class="section-badge">Modul Praktik & E-Book</span>
-          <h2 class="section-title">Materi & Buku Digital</h2>
-          <p>Pelajari prosedur penanganan limbah medis beserta langkah verifikasi keamanannya:</p>
+          <h2>Modul Praktik & Buku Digital 3D</h2>
+          <p>Pilih kategori modul di bawah ini untuk mempelajari prosedur dan poin verifikasi keamanannya:</p>
         </div>
         <a href="materi.html" class="link-more">
-          Semua Materi
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <span>Buka Halaman Materi</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
       </div>
 
+      <!-- Filter Tab Interaktif -->
+      <div class="module-filter-bar" role="toolbar" aria-label="Filter modul edukasi">
+        <button type="button" class="filter-tab-btn active" data-filter="all">Semua Modul</button>
+        <button type="button" class="filter-tab-btn" data-filter="ebook">Buku Digital 3D</button>
+        <button type="button" class="filter-tab-btn" data-filter="tajam">Jarum Suntik (Safety Box)</button>
+        <button type="button" class="filter-tab-btn" data-filter="infeksius">Limbah Infeksius</button>
+        <button type="button" class="filter-tab-btn" data-filter="obat">Obat Kedaluwarsa</button>
+      </div>
+
       <div class="article-list">
         
         <!-- Buku Digital (Flipbook) -->
-        <details class="expandable-card" id="flipbookWrapper">
+        <details class="expandable-card" id="flipbookWrapper" data-category="ebook">
           <summary class="expandable-summary">
-            <div class="article-thumb" style="background: var(--color-primary); color: var(--color-primary-contrast);">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <div class="article-thumb thumb-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM13 9V3.5L18.5 9H13z"/>
               </svg>
             </div>
             <div class="article-content">
               <h3>Memahami Bahaya Limbah B3 Medis di Lingkungan Sekitar</h3>
               <p>Mengapa limbah medis tidak boleh dicampur dengan sampah dapur rumah tangga biasa?</p>
-              <span class="article-meta">Buku Digital Interaktif • Klik untuk membuka buku</span>
+              <span class="article-meta">Buku Digital Interaktif 3D • Klik untuk membuka buku</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
           </summary>
           
-          <div class="expandable-content" style="background: var(--color-bg);">
+          <div class="expandable-content">
             <p class="flipbook-hint">
-              Klik atau seret sudut halaman untuk membalik halaman buku di bawah ini.
+              Klik lembar halaman sebelah kanan untuk membuka buku, atau klik lembar kiri untuk membalik kembali.
             </p>
             
             <div class="flipbook-container">
               <div id="demoBook" class="flip-book">
                 <!-- Halaman Cover -->
                 <div class="page cover">
-                  <div class="page-content" style="align-items: center; justify-content: center; text-align: center;">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom: 16px;">
+                  <div class="page-content page-content-centered">
+                    <svg class="cover-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM13 9V3.5L18.5 9H13z"/>
                     </svg>
                     <h2 class="cover-title">Memahami Bahaya Limbah B3 Medis</h2>
@@ -142,39 +274,45 @@
                 <!-- Halaman 1 -->
                 <div class="page">
                   <div class="page-content">
-                    <h3 class="page-title">Apa itu Limbah Medis B3?</h3>
-                    <p class="page-text">
-                      Limbah B3 (Bahan Berbahaya dan Beracun) Medis adalah segala jenis sampah yang dihasilkan dari kegiatan medis, perawatan gigi, farmasi, atau sejenisnya, yang dapat membahayakan kesehatan manusia dan lingkungan.
-                      <br><br>
-                      Limbah ini tidak sama dengan sampah dapur. Jika sampah dapur bisa membusuk, limbah medis seringkali mengandung bakteri mematikan atau bahan kimia reaktif.
-                    </p>
-                    <div class="page-number">Halaman 1</div>
+                    <div>
+                      <h3 class="page-title">Apa itu Limbah Medis B3?</h3>
+                      <p class="page-text">
+                        Limbah B3 (Bahan Berbahaya dan Beracun) Medis adalah segala jenis sampah yang dihasilkan dari kegiatan medis, perawatan gigi, farmasi, atau sejenisnya, yang dapat membahayakan kesehatan manusia dan lingkungan.
+                        <br><br>
+                        Limbah ini tidak sama dengan sampah dapur. Jika sampah dapur bisa membusuk, limbah medis seringkali mengandung bakteri mematikan atau bahan kimia reaktif.
+                      </p>
+                    </div>
+                    <div class="page-number"><span>Halaman 1</span><span>EduLimbah</span></div>
                   </div>
                 </div>
 
                 <!-- Halaman 2 -->
                 <div class="page">
                   <div class="page-content">
-                    <h3 class="page-title">Bahaya Pencampuran</h3>
-                    <p class="page-text">
-                      <strong>1. Risiko Penularan Penyakit</strong><br>
-                      Jarum suntik atau perban bekas pasien infeksius yang dibuang di tempat sampah biasa dapat menularkan penyakit menular (seperti Hepatitis B, C, atau HIV) kepada petugas kebersihan atau pemulung yang tidak sengaja tertusuk.
-                      <br><br>
-                      <strong>2. Pencemaran Lingkungan</strong><br>
-                      Antibiotik atau obat kimia yang meresap ke tanah akan mencemari air tanah dan menciptakan bakteri super yang kebal obat.
-                    </p>
-                    <div class="page-number">Halaman 2</div>
+                    <div>
+                      <h3 class="page-title">Bahaya Pencampuran</h3>
+                      <p class="page-text">
+                        <strong>1. Risiko Penularan Penyakit</strong><br>
+                        Jarum suntik atau perban bekas pasien infeksius yang dibuang di tempat sampah biasa dapat menularkan penyakit menular (seperti Hepatitis B, C, atau HIV) kepada petugas kebersihan atau pemulung yang tidak sengaja tertusuk.
+                        <br><br>
+                        <strong>2. Pencemaran Lingkungan</strong><br>
+                        Antibiotik atau obat kimia yang meresap ke tanah akan mencemari air tanah dan menciptakan bakteri super yang kebal obat.
+                      </p>
+                    </div>
+                    <div class="page-number"><span>Halaman 2</span><span>EduLimbah</span></div>
                   </div>
                 </div>
 
                 <!-- Halaman Penutup -->
                 <div class="page">
-                  <div class="page-content" style="align-items: center; justify-content: center; text-align: center;">
-                    <h3 class="page-title" style="border:none;">Kesimpulan</h3>
-                    <p class="page-text">
-                      Oleh karena itu, sangat penting untuk memisahkan limbah medis dari sampah rumah tangga biasa sejak dari rumah Anda.
-                    </p>
-                    <div class="page-number">Halaman 3</div>
+                  <div class="page-content page-content-centered">
+                    <div>
+                      <h3 class="page-title page-title-plain">Kesimpulan</h3>
+                      <p class="page-text">
+                        Oleh karena itu, sangat penting untuk memisahkan limbah medis dari sampah rumah tangga biasa sejak dari rumah Anda.
+                      </p>
+                    </div>
+                    <div class="page-number"><span>Halaman 4</span><span>EduLimbah</span></div>
                   </div>
                 </div>
               </div>
@@ -183,10 +321,10 @@
         </details>
         
         <!-- Expandable Card 1: Jarum Suntik -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="tajam" open>
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-red); background: var(--color-accent-red-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
                 <line x1="3" y1="22" x2="21" y2="22"></line>
               </svg>
@@ -194,10 +332,10 @@
             <div class="article-content">
               <h3>Urutan Penanganan Jarum Suntik (Safety Box)</h3>
               <p>Langkah-langkah dan verifikasi penanganan jarum suntik bekas pakai secara aman dan terstandar.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">4 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -254,10 +392,10 @@
         </details>
         
         <!-- Expandable Card 2: Limbah Infeksius -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="infeksius">
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-yellow); background: var(--color-accent-yellow-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
                 <line x1="12" y1="9" x2="12" y2="13"/>
                 <line x1="12" y1="17" x2="12.01" y2="17"/>
@@ -266,10 +404,10 @@
             <div class="article-content">
               <h3>Cara Aman Mengatasi Limbah Infeksius</h3>
               <p>Langkah-langkah dan verifikasi pengemasan perban, kapas berdarah, atau sarung tangan bekas.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">5 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -337,10 +475,10 @@
         </details>
 
         <!-- Expandable Card 3: Obat-obatan -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="obat">
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-brown); background: var(--color-accent-brown-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-brown">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M10.5 20.5L3.5 13.5A2.83 2.83 0 0 1 3.5 9.5L9.5 3.5A2.83 2.83 0 0 1 13.5 3.5L20.5 10.5A2.83 2.83 0 0 1 20.5 14.5L14.5 20.5A2.83 2.83 0 0 1 10.5 20.5Z"/>
                 <path d="M8.5 8.5L15.5 15.5"/>
               </svg>
@@ -348,10 +486,10 @@
             <div class="article-content">
               <h3>Cara Aman Membuang Obat Kedaluwarsa</h3>
               <p>Langkah-langkah dan verifikasi pemusnahan sisa obat atau sirup agar tidak disalahgunakan.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">5 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -425,13 +563,12 @@
     <section class="handover-section">
       <div class="section-header-row">
         <div class="tps-header">
-          <span class="section-badge">Prosedur Resmi & Lokasi TPS</span>
-          <h2 class="section-title">Alur Penyerahan & TPS B3 Rujukan</h2>
+          <h2>Alur Penyerahan & TPS B3 Rujukan</h2>
           <p>Ikuti 3 langkah standar berikut untuk menyerahkan limbah medis rumah tangga ke fasilitas kesehatan berizin:</p>
         </div>
         <a href="info-tps.html" class="link-more">
-          Lihat Semua Lokasi TPS
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <span>Lihat Semua Lokasi TPS</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -439,34 +576,32 @@
       </div>
 
       <ol class="flow-grid">
-        <!-- Langkah 1 -->
         <li class="flow-card">
           <div class="flow-card-top">
-            <div class="flow-icon-wrapper">
+            <div class="flow-icon-wrapper" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
             </div>
-            <span class="flow-step-badge">Langkah 01</span>
+            <span class="flow-step-badge">Tahap 1</span>
           </div>
           <div class="flow-card-body">
-            <h4>Kemas Secara Aman di Rumah</h4>
+            <h3>Kemas Secara Aman di Rumah</h3>
             <p>Pastikan jarum suntik berada dalam wadah kaku anti tusuk (<em>safety box</em> atau botol plastik tebal), dan limbah perban infeksius diikat rapat dalam kantong kuning atau kantong ganda.</p>
           </div>
           <div class="flow-card-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <span>Wadah tertutup rapat & diberi label "Limbah Medis"</span>
           </div>
         </li>
 
-        <!-- Langkah 2 -->
         <li class="flow-card">
           <div class="flow-card-top">
-            <div class="flow-icon-wrapper">
+            <div class="flow-icon-wrapper" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
@@ -474,37 +609,36 @@
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <span class="flow-step-badge">Langkah 02</span>
+            <span class="flow-step-badge">Tahap 2</span>
           </div>
           <div class="flow-card-body">
-            <h4>Bawa ke Pos Sanitasi / Loket Faskes</h4>
+            <h3>Bawa ke Pos Sanitasi / Loket Faskes</h3>
             <p>Sampaikan kepada petugas pendaftaran atau instalasi kesehatan lingkungan (sanitasi) faskes bahwa Anda hendak menitipkan limbah medis rumah tangga untuk dimusnahkan.</p>
           </div>
           <div class="flow-card-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <span>Serahkan langsung ke petugas, jangan di tempat sampah umum</span>
           </div>
         </li>
 
-        <!-- Langkah 3 -->
         <li class="flow-card">
           <div class="flow-card-top">
-            <div class="flow-icon-wrapper">
+            <div class="flow-icon-wrapper" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 <path d="m9 12 2 2 4-4"></path>
               </svg>
             </div>
-            <span class="flow-step-badge">Langkah 03</span>
+            <span class="flow-step-badge">Tahap 3</span>
           </div>
           <div class="flow-card-body">
-            <h4>Penimbangan & Penyimpanan TPS B3</h4>
+            <h3>Penimbangan & Penyimpanan TPS B3</h3>
             <p>Petugas sanitasi akan mencatat dan menempatkan limbah ke ruang TPS B3 berpendingin khusus sebelum dijemput oleh pihak ketiga berizin resmi insinerasi KLHK.</p>
           </div>
           <div class="flow-card-check">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <span>Bebas risiko pencemaran & penyalahgunaan</span>
@@ -519,37 +653,38 @@
           
           <div class="facility-meta">
             <span class="rating-score">4.7</span>
-            <svg class="star-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            <span>(5.1K)</span>
-            <span class="meta-dot">•</span>
+            <span>(5.1K ulasan)</span>
+            <span aria-hidden="true">•</span>
             <span>Rumah Sakit Umum Daerah</span>
           </div>
           
           <div class="facility-address">
-            <span class="status-open">Buka 24 Jam</span>
-            <span class="meta-dot">•</span>
+            <span class="status-open">Buka 24 jam</span>
+            <span aria-hidden="true">•</span>
             <span>Jl. Kapten Tendean No. 16, Pakunden, Kec. Pesantren, Kota Kediri, Jawa Timur.</span>
           </div>
         </div>
 
         <div class="facility-actions">
           <a href="tel:+623542891400" class="btn-action">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
-            Telepon
+            <span>Hubungi RSUD</span>
           </a>
           <a href="https://www.google.com/maps/dir/?api=1&destination=RSUD+Gambiran+Kota+Kediri,+Jl.+Kapten+Tendean+No.+16,+Pakunden,+Kec.+Pesantren,+Kota+Kediri" target="_blank" rel="noopener noreferrer" class="btn-action btn-primary-outline">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
             </svg>
-            Rute
+            <span>Buka Rute Peta</span>
           </a>
         </div>
       </article>
     </section>
+
   </main>
 
   <!-- Footer -->

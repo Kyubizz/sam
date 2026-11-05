@@ -4,24 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Materi & Artikel - EduLimbah</title>
-  
-  <!-- CSS External -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/flipbook.css">
-
-  <!-- Script StPageFlip -->
-  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-  <!-- JS External -->
   <script src="js/main.js" defer></script>
   <script src="js/flipbook.js" defer></script>
 </head>
 <body>
+  <a href="#konten-utama" class="skip-link">Langsung ke konten utama</a>
 
-  <!-- Header Navigasi -->
+  <!-- Header Navigasi Melayang (Floating Glass Dock) -->
   <header class="site-header">
     <div class="container nav-inner">
-      <a href="index.html" class="brand">EduLimbah</a>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EduLimbah</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
         <a href="index.html">Beranda</a>
         <a href="panduan.html">Panduan Pemilahan</a>
         <a href="materi.html" class="active" aria-current="page">Materi & Artikel</a>
@@ -33,51 +31,51 @@
   <!-- Hero Banner -->
   <section class="hero">
     <div class="container">
-      <div class="hero-text">
-        <h1>Materi Edukasi & Artikel Ilmiah</h1>
-        <p>Tingkatkan wawasan Anda mengenai pengelolaan limbah B3 medis, dampak terhadap ekosistem lingkungan, serta prosedur perlindungan diri bagi tenaga medis maupun masyarakat umum.</p>
-      </div>
+      <h1>Materi Edukasi & Artikel Ilmiah</h1>
+      <p>Tingkatkan wawasan Anda mengenai pengelolaan limbah B3 medis, dampak terhadap ekosistem lingkungan, serta prosedur perlindungan diri bagi tenaga medis maupun masyarakat umum.</p>
     </div>
   </section>
 
   <!-- Konten Utama -->
-  <main class="container page-layout">
+  <main id="konten-utama" class="container page-layout">
     
     <!-- Section 1: E-Book Digital Flipbook -->
     <section>
-      <h2 class="section-title">Buku Digital Interaktif</h2>
-      <p class="section-subtitle">Pelajari dasar-dasar limbah medis B3 melalui buku digital interaktif berikut.</p>
+      <div class="tps-header">
+        <h2>Buku Digital Interaktif 3D</h2>
+        <p>Pelajari dasar-dasar limbah medis B3 melalui buku digital dua halaman interaktif berikut.</p>
+      </div>
       
       <details class="expandable-card" id="flipbookWrapper" open>
         <summary class="expandable-summary">
-          <div class="article-thumb" style="background: var(--color-primary); color: var(--color-primary-contrast);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <div class="article-thumb thumb-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM13 9V3.5L18.5 9H13z"/>
             </svg>
           </div>
           <div class="article-content">
             <h3>Memahami Bahaya Limbah B3 Medis di Lingkungan Sekitar</h3>
             <p>E-Book interaktif panduan awal pengenalan bahaya dan penanganan limbah medis.</p>
-            <span class="article-meta">Buku Digital Interaktif • Buka / Tutup</span>
+            <span class="article-meta">Buku Digital Interaktif 3D • Buka / Tutup</span>
           </div>
-          <div class="expand-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="expand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </div>
         </summary>
         
-        <div class="expandable-content" style="background: var(--color-bg);">
+        <div class="expandable-content">
           <p class="flipbook-hint">
-            Klik atau seret sudut halaman untuk membalik lembaran buku.
+            Klik lembar halaman sebelah kanan untuk membuka buku, atau klik lembar kiri untuk membalik kembali.
           </p>
           
           <div class="flipbook-container">
             <div id="demoBook" class="flip-book">
               <!-- Halaman Cover -->
               <div class="page cover">
-                <div class="page-content" style="align-items: center; justify-content: center; text-align: center;">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom: 16px;">
+                <div class="page-content page-content-centered">
+                  <svg class="cover-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM13 9V3.5L18.5 9H13z"/>
                   </svg>
                   <h2 class="cover-title">Memahami Bahaya Limbah B3 Medis</h2>
@@ -88,39 +86,45 @@
               <!-- Halaman 1 -->
               <div class="page">
                 <div class="page-content">
-                  <h3 class="page-title">Apa itu Limbah Medis B3?</h3>
-                  <p class="page-text">
-                    Limbah B3 (Bahan Berbahaya dan Beracun) Medis adalah segala jenis sampah yang dihasilkan dari kegiatan medis, perawatan gigi, farmasi, atau sejenisnya, yang dapat membahayakan kesehatan manusia dan lingkungan.
-                    <br><br>
-                    Limbah ini tidak sama dengan sampah dapur. Jika sampah dapur bisa membusuk, limbah medis seringkali mengandung bakteri mematikan atau bahan kimia reaktif.
-                  </p>
-                  <div class="page-number">Halaman 1</div>
+                  <div>
+                    <h3 class="page-title">Apa itu Limbah Medis B3?</h3>
+                    <p class="page-text">
+                      Limbah B3 (Bahan Berbahaya dan Beracun) Medis adalah segala jenis sampah yang dihasilkan dari kegiatan medis, perawatan gigi, farmasi, atau sejenisnya, yang dapat membahayakan kesehatan manusia dan lingkungan.
+                      <br><br>
+                      Limbah ini tidak sama dengan sampah dapur. Jika sampah dapur bisa membusuk, limbah medis seringkali mengandung bakteri mematikan atau bahan kimia reaktif.
+                    </p>
+                  </div>
+                  <div class="page-number"><span>Halaman 1</span><span>EduLimbah</span></div>
                 </div>
               </div>
 
               <!-- Halaman 2 -->
               <div class="page">
                 <div class="page-content">
-                  <h3 class="page-title">Bahaya Pencampuran</h3>
-                  <p class="page-text">
-                    <strong>1. Risiko Penularan Penyakit</strong><br>
-                    Jarum suntik atau perban bekas pasien infeksius yang dibuang di tempat sampah biasa dapat menularkan penyakit menular (seperti Hepatitis B, C, atau HIV) kepada petugas kebersihan atau pemulung yang tidak sengaja tertusuk.
-                    <br><br>
-                    <strong>2. Pencemaran Lingkungan</strong><br>
-                    Antibiotik atau obat kimia yang meresap ke tanah akan mencemari air tanah dan menciptakan bakteri super yang kebal obat.
-                  </p>
-                  <div class="page-number">Halaman 2</div>
+                  <div>
+                    <h3 class="page-title">Bahaya Pencampuran</h3>
+                    <p class="page-text">
+                      <strong>1. Risiko Penularan Penyakit</strong><br>
+                      Jarum suntik atau perban bekas pasien infeksius yang dibuang di tempat sampah biasa dapat menularkan penyakit menular (seperti Hepatitis B, C, atau HIV) kepada petugas kebersihan atau pemulung yang tidak sengaja tertusuk.
+                      <br><br>
+                      <strong>2. Pencemaran Lingkungan</strong><br>
+                      Antibiotik atau obat kimia yang meresap ke tanah akan mencemari air tanah dan menciptakan bakteri super yang kebal obat.
+                    </p>
+                  </div>
+                  <div class="page-number"><span>Halaman 2</span><span>EduLimbah</span></div>
                 </div>
               </div>
 
               <!-- Halaman Penutup -->
               <div class="page">
-                <div class="page-content" style="align-items: center; justify-content: center; text-align: center;">
-                  <h3 class="page-title" style="border:none;">Kesimpulan</h3>
-                  <p class="page-text">
-                    Oleh karena itu, sangat penting untuk memisahkan limbah medis dari sampah rumah tangga biasa sejak dari rumah Anda.
-                  </p>
-                  <div class="page-number">Halaman 3</div>
+                <div class="page-content page-content-centered">
+                  <div>
+                    <h3 class="page-title page-title-plain">Kesimpulan</h3>
+                    <p class="page-text">
+                      Oleh karena itu, sangat penting untuk memisahkan limbah medis dari sampah rumah tangga biasa sejak dari rumah Anda.
+                    </p>
+                  </div>
+                  <div class="page-number"><span>Halaman 4</span><span>EduLimbah</span></div>
                 </div>
               </div>
             </div>
@@ -132,17 +136,26 @@
     <!-- Section 2: Artikel & Modul Praktik Mandiri -->
     <section>
       <div class="tps-header">
-        <span class="section-badge">Panduan Langkah demi Langkah</span>
-        <h2 class="section-title">Modul Praktik Mandiri</h2>
-        <p>Pelajari tahapan penanganan limbah medis beserta poin verifikasi keamanan di setiap langkahnya:</p>
+        <h2>Modul Praktik Mandiri</h2>
+        <p>Filter dan pelajari tahapan penanganan limbah medis beserta poin verifikasi keamanan di setiap langkahnya:</p>
       </div>
+
+      <!-- Filter Tab Interaktif -->
+      <div class="module-filter-bar" role="toolbar" aria-label="Filter modul praktik">
+        <button type="button" class="filter-tab-btn active" data-filter="all">Semua Modul</button>
+        <button type="button" class="filter-tab-btn" data-filter="tajam">Jarum Suntik (Safety Box)</button>
+        <button type="button" class="filter-tab-btn" data-filter="infeksius">Limbah Infeksius</button>
+        <button type="button" class="filter-tab-btn" data-filter="obat">Obat Kedaluwarsa</button>
+        <button type="button" class="filter-tab-btn" data-filter="artikel">Artikel Ilmiah</button>
+      </div>
+
       <div class="article-list">
         
         <!-- Artikel 1: Jarum Suntik -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="tajam" open>
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-red); background: var(--color-accent-red-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon>
                 <line x1="3" y1="22" x2="21" y2="22"></line>
               </svg>
@@ -150,10 +163,10 @@
             <div class="article-content">
               <h3>Urutan Penanganan Jarum Suntik (Safety Box)</h3>
               <p>Langkah-langkah dan verifikasi penanganan jarum suntik bekas pakai secara aman dan terstandar.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">4 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -210,10 +223,10 @@
         </details>
 
         <!-- Artikel 2: Limbah Infeksius -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="infeksius">
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-yellow); background: var(--color-accent-yellow-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
                 <line x1="12" y1="9" x2="12" y2="13"/>
                 <line x1="12" y1="17" x2="12.01" y2="17"/>
@@ -222,10 +235,10 @@
             <div class="article-content">
               <h3>Cara Aman Mengatasi Limbah Infeksius</h3>
               <p>Langkah-langkah dan verifikasi pengemasan perban, kapas berdarah, atau sarung tangan bekas.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">5 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -293,10 +306,10 @@
         </details>
 
         <!-- Artikel 3: Obat Kedaluwarsa -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="obat">
           <summary class="expandable-summary">
-            <div class="article-thumb" style="color: var(--color-accent-brown); background: var(--color-accent-brown-bg);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="article-thumb thumb-brown">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M10.5 20.5L3.5 13.5A2.83 2.83 0 0 1 3.5 9.5L9.5 3.5A2.83 2.83 0 0 1 13.5 3.5L20.5 10.5A2.83 2.83 0 0 1 20.5 14.5L14.5 20.5A2.83 2.83 0 0 1 10.5 20.5Z"/>
                 <path d="M8.5 8.5L15.5 15.5"/>
               </svg>
@@ -304,10 +317,10 @@
             <div class="article-content">
               <h3>Cara Aman Membuang Obat Kedaluwarsa</h3>
               <p>Langkah-langkah dan verifikasi pemusnahan sisa obat atau sirup agar tidak disalahgunakan.</p>
-              <span class="article-meta">Panduan Praktis • Klik untuk membaca</span>
+              <span class="article-meta">5 Langkah Terverifikasi • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
@@ -375,10 +388,10 @@
         </details>
 
         <!-- Artikel 4: Patogen Infeksius -->
-        <details class="expandable-card">
+        <details class="expandable-card" data-category="artikel">
           <summary class="expandable-summary">
             <div class="article-thumb">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="12" y1="16" x2="12" y2="12"></line>
                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -389,15 +402,15 @@
               <p>Studi mengenai bakteri dan virus yang bertahan hidup pada kasa, kapas, dan sarung tangan medis.</p>
               <span class="article-meta">Artikel Medis • Klik untuk membaca</span>
             </div>
-            <div class="expand-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="expand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
           </summary>
           
           <div class="expandable-content">
-            <p style="font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7;">
+            <p>
               Limbah infeksius dapat menjadi reservoir berbagai mikroorganisme berbahaya, seperti <em>Staphylococcus aureus</em>, <em>Mycobacterium tuberculosis</em>, virus Hepatitis B & C, serta HIV. Virus Hepatitis B terbukti dapat bertahan di lingkungan kering pada suhu kamar selama lebih dari satu minggu. Penggunaan kantong kuning standar dan sterilisasi autoklaf/insinerator suhu tinggi mutlak diperlukan sebelum dibuang ke landfill.
             </p>
           </div>
@@ -417,4 +430,3 @@
 
 </body>
 </html>
-
